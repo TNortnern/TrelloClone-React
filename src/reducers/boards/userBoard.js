@@ -16,10 +16,14 @@ const userBoardReducer = (state = boardItems, { type, payload }) => {
       newState = [...newState, payload]
       return newState
     case "SET_USER_BOARD_TASK":
-      if (payload && payload.length > 0) {
-        lane = findLane(newState, payload[0].laneId);
-        lane.tasks = payload
-      }
+      // if (payload && payload.length > 0) {
+      //   console.log(payload)
+      //   lane = findLane(newState, payload[0].laneId);
+      //   payload = setPayloadLane
+      //   lane.tasks = payload
+      // }
+      console.log(payload)
+      console.log("\n")
       return [...newState]
     case "UPDATE_USER_BOARD_TASK":
       // get list of current boards and find the one to update

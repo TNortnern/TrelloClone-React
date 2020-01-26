@@ -24,6 +24,7 @@ const Board = ({
  const [nameLaneTabVisible, setNameLaneTabVisible] = useState(false);
  const [laneCreateButtonVisible, setLaneCreateButtonVisible] = useState(true);
  const [newLaneName, setNewLaneName] = useState("");
+ const [currentLaneId, setCurrentLaneId] = useState(0);
 
  const toggleLaneNameTabVisibility = () => {
    setNameLaneTabVisible(!nameLaneTabVisible);
@@ -42,6 +43,18 @@ const Board = ({
  const updateLaneName = value => {
    setNewLaneName(value);
  };
+
+ const declareLaneSelected = laneId => {
+   console.log(laneId)
+    setCurrentLaneId(laneId);
+ }
+
+ const stateUpdatePassthrough = (state) => {
+   console.log("\nhello")
+   console.log(currentLaneId)
+   console.log(state)
+   setUserBoardTask(state, currentLaneId)
+ }
 
 
   const doesUserOwnBoard = () => {
@@ -67,7 +80,11 @@ const Board = ({
                   <h6>{laneItem.name}</h6>
                   <span>...</span>
                 </div>
-                <ReactSortable list={laneItem.tasks} setList={setUserBoardTask} group="laneTasks" ghostClass="empty-task">
+                <ReactSortable list={laneItem.tasks}  
+                                setList={newState => stateUpdatePassthrough(newState)} 
+                                group="laneTasks" 
+                                ghostClass="empty-task" 
+                                onChoose={() => declareLaneSelected(laneItem.id)}>
                   {laneItem.tasks.length
                     ? laneItem.tasks.map(task => (
                         <LaneTasks
