@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Home from "./Home";
 import { connect } from "react-redux";
-import { getUserBoards } from "../../actions/boards/index";
+import { setUserBoards } from "../../actions/boards/index";
 import { withRouter } from 'react-router-dom'
 import Icon from "@material-ui/core/Icon";
 import Navbar from "./../Navbar";
@@ -11,7 +11,7 @@ import BoardContent from "./BoardContent";
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.getUserBoards(this.props.boards, this.props.user);
+    this.props.setUserBoards(this.props.boards, this.props.user);
   }
 
   render() {
@@ -49,4 +49,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, { getUserBoards })(HomePage));
+export default withRouter(connect(mapStateToProps, { setUserBoards })(HomePage));

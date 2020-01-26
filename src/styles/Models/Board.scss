@@ -140,6 +140,41 @@
     }
 }
 
+.empty-lane {
+    .lane {
+        background-color: darkgray;
+        opacity: 0.5;
+        .lane-title {
+            h6 {
+                color: darkgray;
+            }
+            span {
+                color: darkgray;
+            }
+        }
+        .add-card {
+            .card-add-card {
+                span {
+                    color: darkgray;
+                }
+            }
+        }
+    }
+}
+
+.empty-task {
+    background-color: darkgray;
+    div {
+        span {
+            color: darkgray;
+        }
+    }
+}
+
+.lane-item-display {
+    display: inline-flex;
+}
+
 .lane-items, .lane-title, .card-add-card {
     display: flex;
 }

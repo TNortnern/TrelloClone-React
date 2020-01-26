@@ -1,22 +1,20 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import BoardBase from "./BoardBase";
 import "../../styles/Models/Board.scss";
 import AddACard from "./Add/AddACard";
-import {
-  getUserBoard,
-  updateUserTask,
-  addLaneToBoard
-} from "../../actions/boards/index";
+import { setUserBoard, updateUserTask, addLaneToBoard, setUserBoardTask } from "../../actions/boards/index";
 import LaneTasks from "./LaneTasks";
 import Icon from "@material-ui/core/Icon";
 import { Lane } from "../../TestingData/Boards/BoardBlueprint";
+import { ReactSortable } from "react-sortablejs";
 
 const Board = ({
   userBoard,
-  getUserBoard,
+  setUserBoard,
   updateUserTask,
+  setUserBoardTask,
   user,
   match,
   location,
@@ -55,34 +53,37 @@ const Board = ({
         <Redirect to={{ pathname: "/boards", state: { from: location } }} />
       );
     }
+
     return (
       <BoardBase>
         <div className="board">
           <div className="lane-items">
-            <Fragment>
-              {userBoard.length
-                ? userBoard.map(laneItem => (
-                    <div>
-                      <div key={laneItem.id.toString()} className="lane">
-                        <div className="lane-title">
-                          <h6>{laneItem.name}</h6>
-                          <span>...</span>
-                        </div>
-                        {laneItem.tasks.length
-                          ? laneItem.tasks.map(task => (
-                              <LaneTasks
-                                key={task.id}
-                                task={task}
-                                laneItem={laneItem}
-                              />
-                            ))
-                          : null}
-                        <AddACard key={laneItem.id} laneID={laneItem.id} />
-                      </div>
-                    </div>
-                  ))
-                : null}
-            </Fragment>
+
+          <ReactSortable list={userBoard} setList={setUserBoard} className="lane-item-display" ghostClass="empty-lane">
+          {userBoard.length ? userBoard.map(laneItem => (
+            <div>
+              <div key={laneItem.id.toString()} className="lane" direction='horizontal'>
+                <div className="lane-title">
+                  <h6>{laneItem.name}</h6>
+                  <span>...</span>
+                </div>
+                <ReactSortable list={laneItem.tasks} setList={setUserBoardTask} group="laneTasks" ghostClass="empty-task">
+                  {laneItem.tasks.length
+                    ? laneItem.tasks.map(task => (
+                        <LaneTasks
+                          key={task.id}
+                          task={task}
+                          laneItem={laneItem}
+                        />
+                      ))
+                    : null}
+                </ReactSortable>
+                <AddACard key={laneItem.id} laneID={laneItem.id} />
+              </div>
+            </div>
+            )) : null}
+          </ReactSortable>
+
 
             <div
               className={
@@ -140,7 +141,7 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, { getUserBoard, updateUserTask, addLaneToBoard })(
+  connect(mapStateToProps, { setUserBoard, updateUserTask, setUserBoardTask, addLaneToBoard })(
     Board
   )
 );

@@ -1,4 +1,3 @@
-import { boardItems } from "../../TestingData/Boards/boardItems";
 export const addNewBoard = payload => {
   return {
     type: "ADD_NEW_BOARD",
@@ -6,7 +5,7 @@ export const addNewBoard = payload => {
   }
 }
 
-export const getUserBoard = board => {
+export const setUserBoard = board => {
   return {
     type: "SET_USER_BOARD",
     payload: board
@@ -27,6 +26,13 @@ export const addTaskToLane = payload => {
   }
 }
 
+export const setUserBoardTask = task => {
+  return {
+    type: "SET_USER_BOARD_TASK",
+    payload: task
+  };
+};
+
 export const updateUserTask = payload => (dispatch, getState) => {
   // check what the user is updating
   if (payload.update) {
@@ -43,7 +49,7 @@ export const updateUserTask = payload => (dispatch, getState) => {
   }
 };
 
-export const getUserBoards = boards => {
+export const setUserBoards = boards => {
   return {
     type: "SET_USER_BOARDS",
     payload: boards

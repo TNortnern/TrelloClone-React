@@ -1,0 +1,72 @@
+@import "../inputs";
+@import "../buttons";
+@import "../colors";
+
+.navbar-container__board-panel {
+  .default-input {
+    width: 98%;
+  }
+  h5 {
+    font-size: 16px;
+    color: #5e6c84;
+  }
+  .material-icons {
+    margin: 0;
+    position: relative;
+    top: 6px;
+    margin: 0 3px;
+  }
+}
+
+.navbar-container__board-panel--toggle-board-section {
+  float: right;
+  @include button-reset();
+  line-height: 15px;
+  margin-top: 5px;
+  margin-right: 8px;
+  span {
+    height: 22px;
+    font-size: 35px;
+    color: #6b778c;
+    width: 24px;
+    display: inline-block;
+    &:hover {
+      background-color: fade-out(#6b778c, 0.8);
+    }
+  }
+}
+
+.navbar-container__board-panel-board-section-item {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  border: 1px solid rgb(184, 183, 183);
+  width: 97%;
+  align-items: center;
+  color: $dark-blue;
+  opacity: 0.8;
+  transition: 0.15s;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  cursor: pointer;
+  margin: 5px 0;
+  a, span {
+      color: $dark-blue;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  div {
+    align-items: center;
+    font-weight: bold;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.navbar-container__board-panel-board-section-item-title {
+  font-weight: 700;
+}

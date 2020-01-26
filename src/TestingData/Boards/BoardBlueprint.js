@@ -32,7 +32,8 @@ export class Lane {
 }
 
 export class Task {
-    constructor(name) {
+    constructor(name, laneId) {
+      this.laneId = ""
       this.name = name
       this.additions = new TaskAddition();
     }
