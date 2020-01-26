@@ -1,0 +1,22 @@
+// define colors in here
+$blue: rgb(0, 82, 204);
+$red: rgb(252, 39, 39);
+$dark-blue: #172b4d;
+$common-transparent: rgba(0, 0, 0, 0.4);
+$true-transparent: rgba(0,0,0,0);
+$white: #fff;
+
+@mixin blue-background() {
+    background-color: $blue;
+    &:hover {
+        background-color: lighten($blue, 10%);
+    }
+}
+
+.blue {
+   @include blue-background;
+}
+
+@mixin gray-background($amount: .08) {
+    background-color: rgba(0, 0, 0, $amount);
+}

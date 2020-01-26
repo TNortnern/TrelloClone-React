@@ -1,0 +1,11 @@
+@import '../../buttons.scss';
+$radius: 3px;
+$gray-bg-color: #e0e1e2;
+$default-color: #42526e;
+$muted: #5e6c84;
+$darken: 0.16;
+
+@mixin side-margins() {
+    margin-left: 12px;
+    margin-right: 12px;
+  }

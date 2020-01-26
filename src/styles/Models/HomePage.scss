@@ -1,0 +1,107 @@
+.home-container {
+    width: 100%;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    .sidebar-container {
+        margin-top: 40px;
+        width: 210px;
+        .sidebar-container__button {
+            cursor: pointer;
+            align-items: center;
+            background-color: transparent;
+            border-radius: 4px;
+            box-shadow: none;
+            display: flex;
+            font-weight: 700;
+            margin-bottom: 4px;
+            min-height: 20px;
+            overflow: hidden;
+            padding: 6px 8px 6px 8px;
+            text-decoration: none;
+            transition-property: background-color,border-color,box-shadow;
+            transition-duration: 85ms;
+            transition-timing-function: ease;
+            &:hover {
+                background-color: rgba(9,30,66,.08);
+            }
+            &.sidebar-container__button--active {
+                background-color: #e4f0f6;
+                color: #0079bf;
+            }
+            &.teams-container__button {
+                color: #5e6c84;
+                font-weight: 400;
+            }
+        }
+        .teams-container {
+            margin-top: 8px;
+            .teams-container__title {
+                color: #5e6c84;
+                font-size: 12px;
+                font-weight: 500;
+                letter-spacing: .04em;
+                line-height: 16px;
+                margin-top: 16px;
+                text-transform: uppercase;
+                flex: 1 1 auto;
+                margin: 0;
+                padding: 8px 0;
+            }
+        }
+    }
+    .content-container {
+        margin-top: 40px;
+        padding-left: 64px;
+        width: 860px;
+        .boards-content {
+            .content-container__title {
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                line-height: 24px;
+                margin: 4px 0 11px 0;
+                font-size: 16px;
+                font-weight: 700;
+            }
+            .card-container {
+                padding-bottom: 20px;
+                .card-container__card {
+                    cursor: pointer;
+                    color: white;
+                    background-color: lightgray;
+                    font-size: 16px;
+                    font-weight: 700;
+                    width: 23.5%;
+                    height: 96px;
+                    padding: 8px;
+                    margin: 0 2% 8px 0;
+                    border-radius: 3px;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0.85;
+                    &:hover {
+                        opacity: 1;
+                    }
+                    &.card-container__card--default {
+                        background-image: url(https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                    &.card-container__card--create-board {
+                        color: black;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.material-icons {
+    margin-right: 10px;
+}

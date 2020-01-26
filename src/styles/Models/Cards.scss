@@ -1,0 +1,95 @@
+@import './BoardVariables/BoardVariables.scss';
+
+.card-item {
+    width: 100%;
+    background-color: #fff;
+    border-radius: $radius;
+    padding: 6px 8px 2px;
+    box-shadow: 0 1px 0 rgba(9,30,66,.25);
+    cursor: pointer;
+    min-height: 20px;
+    transition: $default-timing;
+    margin-bottom: 7px;
+    &:hover {
+        background-color: lighten($gray-bg-color, 5%);
+        .card-edit-name {
+            display: block;
+        }
+    }
+    div {
+        &:nth-child(1) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.card-edit-name {
+  display: none;
+  font-size: 12px;
+  padding: 1px;
+  &:hover {
+    background-color: lighten($gray-bg-color, 2%);
+  }
+}
+
+.card-add-card {
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 3px;
+    span {
+        cursor: pointer;
+        padding: 5px;
+        border-radius: $radius;
+        color: #5e6c84;
+        width: 30px;
+        height: 30px;
+        &:nth-child(1) {
+            flex-basis: 86%;
+        }
+        &:hover {
+            background-color: darken($gray-bg-color, 14%);
+        }
+    }
+}
+
+.card-confirm-add-card {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    // TODO: Wire up default styling somewhere for close and buttons
+    span {
+        cursor: pointer;
+        &:hover {
+            color: red;
+        }
+    }
+    button {
+        margin-right: 10px;
+        background-color: green;
+        color: white;
+        &:hover {
+            background-color: lighten(green, 4%);
+        }
+    }
+}
+
+.task__edit-name {
+    z-index: 1909;
+    position: absolute;
+    button.btn {
+        color: #fff;
+        margin: 1px 6px;
+    }
+    .btn--transparent {
+        transition: .20s;
+        &:hover {
+           transform: translateX(7px);
+        }
+    }
+}
+
+.task-text-muted {
+    color: $muted;
+    font-size: 12px;
+}

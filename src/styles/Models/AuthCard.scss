@@ -1,0 +1,53 @@
+@import "../colors";
+.auth-card {
+  background-color: white;
+  border-radius: 3px;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+  width: 350px;
+
+  @media screen and (max-width: 700px) {
+    box-shadow: none;
+  }
+}
+
+.auth-card__title {
+  font-weight: 700;
+  color: #5e6c84;
+  margin-bottom: 30px;
+}
+
+.auth-card__input {
+  width: 250px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 2px;
+  background-color: #f9fafc;
+  border: 2px solid lightgray;
+  transition: border 0.25s, background-color 0.25s;
+  transition-timing-function: ease-in-out;
+  &:focus {
+    outline: none;
+    background-color: white;
+    border: 2px solid #4c9aff;
+  }
+}
+
+.auth-card__submit__button--login,
+.auth-card__submit__button--register {
+  width: 250px;
+  padding: 8px;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.auth-card__submit__button--login {
+  background-color: #5aac44;
+  &:hover {
+    background-color: #61bd4f;
+  }
+}

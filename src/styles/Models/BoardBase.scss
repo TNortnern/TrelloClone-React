@@ -1,0 +1,72 @@
+@import '../colors';
+@import './BoardVariables/BoardVariables.scss';
+
+.board-base {
+    background-image: url("https://media.macphun.com/img/uploads/customer/blog/1563197047/15632023525d2c9330b67118.07554864.jpg?q=85&w=2520");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    min-width: 100vh;
+    min-height: 100vh;
+    font-weight: 400;
+    .btn, button, span, h1, h2, h3, h4, h5, h6, p {
+        color: $default-color;
+    }
+}
+.board-base-star {
+    font-size: 15px;
+}
+
+
+.btn {
+    &.btn--with-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &.btn--gray {
+        @include gray-background();
+        &:hover {
+            @include gray-background($darken);
+        }
+    }
+    &.btn--float-right {
+        margin-left: auto;
+    }
+}
+
+.board-base__option-header, .board-base__option-info {
+  display: flex;
+}
+
+.board-base__option-header {
+    padding: 8px 4px 4px 8px;
+    flex-wrap: wrap;
+    @include side-margins();
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.board-header__user-icon {
+    margin: 0px 8px 0px 8px;
+}
+
+.board-base-vertical-rule {
+    margin: 8px 8px 12px 8px;
+}
+
+.board-base-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $dark-blue;
+    span {
+        padding: 3px 12px;
+        border-radius: 3px;
+        cursor: pointer;
+        &:hover {
+            @include gray-background($darken);
+        }
+    }
+}

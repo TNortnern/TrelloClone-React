@@ -1,0 +1,66 @@
+// Borders
+$border-radius-slight: 2px;
+$border-radius-smaller: 4px;
+$border-radius-small: 5px;
+// $border-radius-large: 8px;
+
+// Breakpoints
+// These are used in the foundation breakpoint mixin
+$small:   0;
+$medium:  376px;
+$xmedium: 550px;
+$large:   769px;
+$larger:  945px;
+$xlarge:  1201px;
+$xxlarge: 1441px;
+$xxxlarge: 1801px;
+$xxxxlarge: 2217px;
+
+$mobile-margin: 1.5625em;
+$desktop-margin: 2em;
+
+// Type
+$browser-context: 16;
+// $sans: tablet-gothic, 'Helvetica', 'Arial', sans-serif; // no
+// $sans: calluna-sans, 'Helvetica', 'Arial', sans-serif; // no
+// $sans: nimbus-sans, 'Helvetica', 'Arial', sans-serif; // no
+// $sans: franlin-gothic-urw, 'Helvetica', 'Arial', sans-serif; // fav
+// $sans: neue-haas-unica, 'Helvetica', 'Arial', sans-serif; // fav
+// $sans: calluna, serif;
+// $sans: skolar-latin, serif;
+// $sans: 'PT Sans', sans-serif;
+// $sans: 'Roboto', sans-serif;
+
+// $sans: soleil, 'Helvetica', 'Arial', sans-serif; // just one width
+
+// $sans: 'Source Sans Pro', sans-serif; // just one width
+// $sans: acumin-pro, 'Helvetica', 'Arial', sans-serif; // bazillion widths // Pragmatica Slabserif
+// $sans: benton-sans, 'Helvetica', 'Arial', sans-serif; // bazillion widths // benton modern
+// $sans: proxima-nova, 'Helvetica', 'Arial', sans-serif; // bazillion widths // skolar
+$sans: aktiv-grotesk, 'Helvetica', 'Arial', sans-serif; // bazillion widths // miller
+// $sans: protipo, 'Helvetica', 'Arial', sans-serif; // bazillion widths // miller
+
+
+// Animation
+$default-timing: 200ms;
+
+// Layers
+$z: (
+  1: 10,
+  2: 20,
+  3: 30,
+  4: 40,
+  5: 50,
+  6: 60,
+  7: 70,
+  8: 80,
+  9: 90,
+  10: 100,
+  top: 1000
+);
+
+$radius: (
+  small: 4px,
+  medium: 12px,
+  large: 20px
+);

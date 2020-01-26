@@ -1,0 +1,126 @@
+@import "../_colors.scss";
+@import "../_buttons.scss";
+@mixin light-background($amount: 0.15) {
+  background: hsla(0, 0%, 100%, $amount);
+}
+@mixin unfocused() {
+  @include light-background(0.15);
+}
+$border-radius: 3px;
+
+.create-new-board {
+  color: $white;
+  display: grid;
+  grid-template-columns: 70% 26%;
+  justify-content: space-between;
+  margin-top: 50px;
+  .create-new-board__close {
+    @include button-reset();
+    float: right;
+    color: white;
+    margin-right: 10px;
+    &:hover {
+      color: red;
+    }
+  }
+  .create-new-board__select {
+    position: relative;
+    margin-left: 5px;
+    button {
+      @include button-reset();
+      font-size: 14px;
+      color: white;
+      padding: 2px 4px;
+      text-align: left;
+      border-radius: $border-radius;
+      display: inline-flex;
+      align-items: center;
+      &:hover {
+        @include unfocused();
+      }
+    }
+    .material-icons {
+      position: relative;
+      left: 14px;
+    }
+  }
+  .create-new-board__content {
+    background-image: url("https://www.publicdomainpictures.net/pictures/50000/nahled/blue-nature-background-3.jpg");
+    background-size: cover;
+    padding: 10px 10px 10px 16px;
+    border-radius: $border-radius;
+  }
+  .create-new-board__template-start {
+    // display: inline-flex;
+    align-items: center;
+    position: relative;
+    top: 3px;
+    left: 5px;
+    padding: 3px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    &:hover {
+      @include unfocused();
+    }
+    .material-icons {
+      margin-right: 4px;
+      font-size: 15px;
+    }
+  }
+  .create-new-board__themes {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    justify-content: space-between;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: $border-radius;
+    }
+  }
+  .create-new-board__themes-item {
+    opacity: 0.7;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover {
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+  }
+  .create-new-board__theme-active {
+    transform: translateY(-2px);
+    opacity: 1;
+    transform: scale(1.12);
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+      transform: scale(1.12);
+    }
+  }
+  input {
+    background-color: $true-transparent;
+    border: none;
+    color: $white;
+    outline: none;
+    padding: 5px 8px;
+    border-radius: $border-radius;
+    width: calc(100% - 40px);
+    font-size: 16px;
+    &:focus {
+      @include light-background(0.27);
+      &:hover {
+        @include unfocused();
+      }
+    }
+    &:hover {
+      @include unfocused();
+    }
+  }
+  input,
+  ::placeholder {
+    font-weight: bold;
+  }
+  ::placeholder {
+    color: darken($white, 12%) !important;
+    font-size: 16px;
+  }
+}

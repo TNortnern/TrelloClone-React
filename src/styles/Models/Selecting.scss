@@ -1,0 +1,23 @@
+@import '../colors';
+.selecting {
+    position: absolute;
+    background-color: $white;
+    width: calc(100% + 100px);
+    color: $dark-blue;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 10px;
+    .material-icons {
+        font-size: 14px;
+    }
+}
+
+.selecting__item {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(9,30,66,.04);
+    }
+}
