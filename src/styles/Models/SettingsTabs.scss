@@ -1,0 +1,31 @@
+.settings-tabs {
+  .settings-tabs__tab {
+    background-color: #dfe1e6;
+    border: 1px solid #dfe1e6;
+    border-bottom: 0;
+    border-radius: 3px 3px 0 0;
+    display: inline-block;
+    font-weight: 700;
+    margin: 2px 2px 0;
+    padding: 8px 20px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: .1s ease-in;
+    &:hover {
+        background-color: darken(#dfe1e6, 20%);
+    }
+  }
+
+  .settings-tabs__tab--active {
+    background-color: #fff;
+    border-color: #dfe1e6;
+    border: 1px solid #dfe1e6;
+    cursor: default;
+    margin-bottom: -1px;
+    padding-bottom: 9px;
+    &:hover {
+        background-color: #fff;
+    }
+  }
+}

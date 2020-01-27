@@ -11,6 +11,7 @@ import HomePage  from "./components/Home/HomePage";
 import Board from "./components/Board/Board";
 import AuthProtected from "./components/AuthProtected";
 import AlreadyAuthed from "./components/AlreadyAuthed";
+import SettingsBase from "./components/UserSettings/SettingsBase";
 // import ProtectedByUser from "./components/ProtectedByUser";
 
 
@@ -42,6 +43,12 @@ class App extends Component {
             exact
             path="/board"
             component={Board}
+          />
+          <AuthProtected
+            authed={this.props.user}
+            exact
+            path="/:userId/:tab"
+            component={SettingsBase}
           />
           <AuthProtected
             authed={this.props.user}
