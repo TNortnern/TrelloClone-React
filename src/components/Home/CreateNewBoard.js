@@ -6,6 +6,7 @@ import "../../styles/GlobalStyles.scss";
 import "../../styles/Models/CreateNewBoard.scss";
 import CreateBoardContent from "./CreateBoardContent";
 import { Board } from "../../TestingData/Boards/BoardBlueprint";
+import OutsideClickHandler from 'react-outside-click-handler'
 
 class CreateNewBoard extends Component {
   constructor(props) {
@@ -61,22 +62,28 @@ class CreateNewBoard extends Component {
   render() {
     return (
       <ScreenOverlay centerHorizontally>
-        <CreateBoardContent
-          name={this.state.name}
-          setName={this.setName}
-          selectTeam={this.selectTeam}
-          team={this.state.team}
-          setTeam={this.setTeam}
-          setVisibility={this.setVisibility}
-          selectVisibility={this.selectVisibility}
-          visibility={this.state.visibility}
-          showTeamDropDown={this.state.showTeamDropDown}
-          showVisibilityDropDown={this.state.showVisibilityDropDown}
-          closeCreate={this.props.closeCreate}
-          createBoard={this.createBoard}
-          theme={this.state.theme}
-          setTheme={this.setTheme}
-        />
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            this.props.closeCreate()
+          }}
+        >
+          <CreateBoardContent
+            name={this.state.name}
+            setName={this.setName}
+            selectTeam={this.selectTeam}
+            team={this.state.team}
+            setTeam={this.setTeam}
+            setVisibility={this.setVisibility}
+            selectVisibility={this.selectVisibility}
+            visibility={this.state.visibility}
+            showTeamDropDown={this.state.showTeamDropDown}
+            showVisibilityDropDown={this.state.showVisibilityDropDown}
+            closeCreate={this.props.closeCreate}
+            createBoard={this.createBoard}
+            theme={this.state.theme}
+            setTheme={this.setTheme}
+          />
+        </OutsideClickHandler>
       </ScreenOverlay>
     );
   }

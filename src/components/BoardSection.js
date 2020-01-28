@@ -29,7 +29,7 @@ const BoardSection = ({title, toggle, shown, collection, icon}) => {
         </h5>
         {shown && collection
           ? collection.map(board => (
-              <Link to={`board/${board.id}`} className="navbar-container__board-panel-board-section">
+              <Link key={board.id} to={`board/${board.id}`} className="navbar-container__board-panel-board-section">
                 <div className="navbar-container__board-panel-board-section-item">
                   <img src={board.theme} alt={board.name} />
                   <div>

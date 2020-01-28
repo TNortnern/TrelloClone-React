@@ -49,7 +49,7 @@ const SettingsProfileTab = () => {
                 <button className="btn btn--success">Save</button>
               </div>
             </div>
-            <div>
+            <div className="settings-tab__avatar">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Creative-Tail-People-police-women.svg"
                 alt=""

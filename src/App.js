@@ -47,13 +47,14 @@ class App extends Component {
           <AuthProtected
             authed={this.props.user}
             exact
-            path="/:userId/:tab"
+            path="/:userId/settings"
             component={SettingsBase}
           />
           <AuthProtected
             authed={this.props.user}
             key={this.props.location.key}
             match={this.props.match}
+            exact
             path="/board/:boardID"
             component={Board}
           />

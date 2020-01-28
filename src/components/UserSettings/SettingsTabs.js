@@ -4,7 +4,6 @@ import { Nav, NavItem, NavLink } from "reactstrap";
 
 import "../../styles/Models/SettingsTabs.scss";
 import Tab from "./Tab";
-import { Icon } from "@material-ui/core";
 import SettingsProfileTab from "./SettingsProfileTab";
 
 const SettingsTabs = () => {
