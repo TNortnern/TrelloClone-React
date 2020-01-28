@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from 'react-dom'
 import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import BoardBase from "./BoardBase";
@@ -83,7 +82,6 @@ const Board = ({
                           key={task.id}
                           task={task}
                           laneItem={laneItem}
-                          laneId={laneItem.id}
                         />
                       ))
                     : null}

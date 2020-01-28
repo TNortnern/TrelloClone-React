@@ -3,7 +3,7 @@ import ScreenOverlay from "../Misc/ScreenOverlay";
 import TaskNameForm from "./TaskNameForm";
 import { Icon } from "@material-ui/core";
 
-const LaneTasks = ({ task, laneItem, laneId }) => {
+const LaneTasks = ({ task, laneItem }) => {
   const [namesToEdit, setNamesToEdit] = useState([]);
   const taskIcon = action => {
     if (action === "checklist") {
@@ -18,7 +18,7 @@ const LaneTasks = ({ task, laneItem, laneId }) => {
     <>
       {namesToEdit.length ? <ScreenOverlay /> : null}
 
-      <div className="card-item" id={laneId}>
+      <div className="card-item">
         <div>
           <span>{task.name}</span>
           <span
