@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Icon } from "@material-ui/core";
 import { logout } from '../actions/auth/index';
-import CreateNewBoard from "./Home/CreateNewBoard";
 import Panel from './Panel';
 
 class UserSettingsPanel extends Component {
