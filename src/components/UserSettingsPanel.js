@@ -27,13 +27,13 @@ class UserSettingsPanel extends Component {
         </Icon>
         <h6>{`${this.props.user.email}`}</h6>
         <ul>
-          <Link to={`/${this.props.user.id}/profile`}>
+          <Link to={`/${this.props.user.id}/settings`}>
             <li>Profile and Visibility</li>
           </Link>
-          <Link to={`/${this.props.user.id}/activity`}>
+          <Link to={`/${this.props.user.id}/settings`}>
             <li>Activity</li>
           </Link>
-          <Link to={`/${this.props.user.id}/cards`}>
+          <Link to={`/${this.props.user.id}/settings`}>
             <li>Cards</li>
           </Link>
           <Link to={`/${this.props.user.id}/settings`}>
@@ -41,13 +41,13 @@ class UserSettingsPanel extends Component {
           </Link>
         </ul>
         <ul>
-          <Link to={`/${this.props.user.id}/help`}>
+          <Link to={`/${this.props.user.id}settings`}>
             <li>Help</li>
           </Link>
-          <Link to={`/${this.props.user.id}/shortcuts`}>
+          <Link to={`/${this.props.user.id}/settings`}>
             <li>Shortcuts</li>
           </Link>
-          <Link to={`/${this.props.user.id}/language`}>
+          <Link to={`/${this.props.user.id}/settings`}>
             <li>Change Language...</li>
           </Link>
         </ul>

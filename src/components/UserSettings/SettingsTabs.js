@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 
-import {
-  Nav,
-  NavItem,
-  NavLink,
-} from "reactstrap";
+import { Nav, NavItem, NavLink } from "reactstrap";
 
 import "../../styles/Models/SettingsTabs.scss";
 import Tab from "./Tab";
+import { Icon } from "@material-ui/core";
+import SettingsProfileTab from "./SettingsProfileTab";
 
 const SettingsTabs = () => {
-   const toggle = tab => {
-     if (activeTab !== tab) setActiveTab(tab);
-   };
+  const toggle = tab => {
+    if (activeTab !== tab) setActiveTab(tab);
+  };
   const [activeTab, setActiveTab] = useState(1);
-  const isActiveTab = (tab) => {
+  const isActiveTab = tab => {
     return activeTab === tab ? "settings-tabs__tab--active" : "";
-  }
+  };
   return (
     <div className="settings-tabs">
-      <Nav className='d-flex justify-content-center' tabs>
+      <Nav className="d-flex justify-content-center" tabs>
         <NavItem>
           <NavLink
             className={`settings-tabs__tab ${isActiveTab(1)}`}
@@ -27,7 +25,7 @@ const SettingsTabs = () => {
               toggle(1);
             }}
           >
-            Tab1
+            Profile and Visibility
           </NavLink>
         </NavItem>
         <NavItem>
@@ -37,19 +35,17 @@ const SettingsTabs = () => {
               toggle(2);
             }}
           >
-            Moar Tabs
+            Settings
           </NavLink>
         </NavItem>
       </Nav>
-      <Tab tab={{current: activeTab, assigned: 1}}>
-        test
+      <Tab tab={{ current: activeTab, assigned: 1 }}>
+        <SettingsProfileTab />
       </Tab>
-      <Tab tab={{current: activeTab, assigned: 2}}>
-            test2
+      <Tab tab={{ current: activeTab, assigned: 2 }}>
+        <SettingsProfileTab />
       </Tab>
-      <Tab tab={{current: activeTab, assigned: 3}}>
-
-      </Tab>
+      <Tab tab={{ current: activeTab, assigned: 3 }}></Tab>
     </div>
   );
 };

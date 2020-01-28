@@ -9,7 +9,7 @@ const Tab = ({tab, children}) => {
             </div>
             )
         }
-        return <div></div>
+        return ''
     }
     return (
         shouldRender()
