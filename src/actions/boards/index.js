@@ -26,11 +26,11 @@ export const addTaskToLane = payload => {
   }
 }
 
-export const setUserBoardTask = (task, originalLaneIdForTask) => {
+export const setUserBoardTask = (task, newLaneIdForTask) => {
   return {
     type: "SET_USER_BOARD_TASK",
     payload: task,
-    oldLaneId: originalLaneIdForTask
+    newLaneId: newLaneIdForTask
   };
 };
 

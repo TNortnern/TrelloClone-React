@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from 'react-dom'
 import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import BoardBase from "./BoardBase";
@@ -9,6 +10,7 @@ import LaneTasks from "./LaneTasks";
 import Icon from "@material-ui/core/Icon";
 import { Lane } from "../../TestingData/Boards/BoardBlueprint";
 import { ReactSortable } from "react-sortablejs";
+
 
 const Board = ({
   userBoard,
@@ -24,7 +26,6 @@ const Board = ({
  const [nameLaneTabVisible, setNameLaneTabVisible] = useState(false);
  const [laneCreateButtonVisible, setLaneCreateButtonVisible] = useState(true);
  const [newLaneName, setNewLaneName] = useState("");
- const [currentLaneId, setCurrentLaneId] = useState(0);
 
  const toggleLaneNameTabVisibility = () => {
    setNameLaneTabVisible(!nameLaneTabVisible);
@@ -44,16 +45,8 @@ const Board = ({
    setNewLaneName(value);
  };
 
- const declareLaneSelected = laneId => {
-   console.log(laneId)
-    setCurrentLaneId(laneId);
- }
-
- const stateUpdatePassthrough = (state) => {
-   console.log("\nhello")
-   console.log(currentLaneId)
-   console.log(state)
-   setUserBoardTask(state, currentLaneId)
+ const moveTask = (state, newLaneId) => {
+   setUserBoardTask(state, newLaneId)
  }
 
 
@@ -81,16 +74,16 @@ const Board = ({
                   <span>...</span>
                 </div>
                 <ReactSortable list={laneItem.tasks}  
-                                setList={newState => stateUpdatePassthrough(newState)} 
+                                setList={newState => moveTask(newState, laneItem.id)} 
                                 group="laneTasks" 
-                                ghostClass="empty-task" 
-                                onChoose={() => declareLaneSelected(laneItem.id)}>
+                                ghostClass="empty-task">
                   {laneItem.tasks.length
                     ? laneItem.tasks.map(task => (
                         <LaneTasks
                           key={task.id}
                           task={task}
                           laneItem={laneItem}
+                          laneId={laneItem.id}
                         />
                       ))
                     : null}
