@@ -41,6 +41,9 @@ const userBoardReducer = (state = boardItems, { type, payload, ...args }) => {
       task = lane.tasks.filter(l => l.id !== payload.task);
       newState[newState.indexOf(lane)].tasks = task
       return [...newState];
+    case "TOGGLE_TASK_EDIT_MODAL_VISIBILITY":
+
+      return;
     default:
       return state;
   }

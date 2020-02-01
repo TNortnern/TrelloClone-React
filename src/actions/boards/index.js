@@ -26,6 +26,13 @@ export const addTaskToLane = payload => {
   }
 }
 
+export const toggleTaskEditModalVisibility = payload => {
+  return {
+      type: 'TOGGLE_TASK_EDIT_MODAL_VISIBILITY',
+      payload
+  }
+}
+
 export const setUserBoardTask = (task, newLaneIdForTask) => {
   return {
     type: "SET_USER_BOARD_TASK",

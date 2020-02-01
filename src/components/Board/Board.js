@@ -9,6 +9,7 @@ import LaneTasks from "./LaneTasks";
 import Icon from "@material-ui/core/Icon";
 import { Lane } from "../../TestingData/Boards/BoardBlueprint";
 import { ReactSortable } from "react-sortablejs";
+import TaskEditModal from "./TaskEditModal";
 
 
 const Board = ({
@@ -61,6 +62,7 @@ const Board = ({
 
     return (
       <BoardBase>
+        <TaskEditModal className={(nameLaneTabVisible ? "" : "display-none")}></TaskEditModal>
         <div className="board">
           <div className="lane-items">
 
