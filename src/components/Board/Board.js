@@ -10,6 +10,7 @@ import Icon from "@material-ui/core/Icon";
 import { Lane } from "../../TestingData/Boards/BoardBlueprint";
 import { ReactSortable } from "react-sortablejs";
 
+
 const Board = ({
   userBoard,
   setUserBoard,
@@ -43,6 +44,10 @@ const Board = ({
    setNewLaneName(value);
  };
 
+ const moveTask = (state, newLaneId) => {
+   setUserBoardTask(state, newLaneId)
+ }
+
 
   const doesUserOwnBoard = () => {
     const hasBoard = user.involvedBoards.find(
@@ -67,7 +72,10 @@ const Board = ({
                   <h6>{laneItem.name}</h6>
                   <span>...</span>
                 </div>
-                <ReactSortable list={laneItem.tasks} setList={setUserBoardTask} group="laneTasks" ghostClass="empty-task">
+                <ReactSortable list={laneItem.tasks}  
+                                setList={newState => moveTask(newState, laneItem.id)} 
+                                group="laneTasks" 
+                                ghostClass="empty-task">
                   {laneItem.tasks.length
                     ? laneItem.tasks.map(task => (
                         <LaneTasks
