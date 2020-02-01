@@ -1,8 +1,8 @@
 import React from 'react';
 import { Icon } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const BoardSection = ({title, toggle, shown, collection, icon}) => {
+const BoardSection = ({title, toggle, shown, collection, icon, location}) => {
     return (
       <div>
         <button className="navbar-container__board-panel--toggle-board-section">
@@ -29,7 +29,7 @@ const BoardSection = ({title, toggle, shown, collection, icon}) => {
         </h5>
         {shown && collection
           ? collection.map(board => (
-              <Link key={board.id} to={`board/${board.id}`} className="navbar-container__board-panel-board-section">
+              <Link key={board.id} to={`/board/${board.id}`} className="navbar-container__board-panel-board-section">
                 <div className="navbar-container__board-panel-board-section-item">
                   <img src={board.theme} alt={board.name} />
                   <div>
@@ -45,4 +45,4 @@ const BoardSection = ({title, toggle, shown, collection, icon}) => {
     );
 }
 
-export default BoardSection;
+export default withRouter(BoardSection);
