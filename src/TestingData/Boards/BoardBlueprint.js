@@ -36,6 +36,7 @@ export class Task {
       this.laneId = ""
       this.name = name
       this.additions = new TaskAddition();
+      this.description = ""
     }
 }
 

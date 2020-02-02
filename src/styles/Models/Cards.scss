@@ -25,12 +25,15 @@
 }
 
 .card-edit-name {
-  display: none;
-  font-size: 12px;
-  padding: 1px;
-  &:hover {
-    background-color: lighten($gray-bg-color, 2%);
-  }
+    height: 20px;
+    border-radius: 2px;
+    &:hover {
+        background-color: darken($gray-bg-color, 20%);
+    }
+    .material-icons {
+        margin: 0px;
+    }
+    
 }
 
 .card-add-card {
