@@ -1,6 +1,6 @@
 import { boardItems } from "../../TestingData/Boards/boardItems";
 
-const userBoardReducer = (state = boardItems, { type, payload }) => {
+const userBoardReducer = (state = boardItems, { type, payload, ...args }) => {
   // avoid mutating state, always create a copy
   let newState = state;
   let task;
@@ -16,10 +16,19 @@ const userBoardReducer = (state = boardItems, { type, payload }) => {
       newState = [...newState, payload]
       return newState
     case "SET_USER_BOARD_TASK":
-      if (payload && payload.length > 0) {
-        lane = findLane(newState, payload[0].laneId);
+      
+      let newLaneId = args['newLaneId'];
+      if (newLaneId) {
+        for(let i = 0; i<payload.length; i++) {
+          if (payload[i].laneId !== newLaneId) {
+            payload[i].laneId = newLaneId
+            
+          }
+        };
+        lane = findLane(newState, newLaneId);
         lane.tasks = payload
       }
+
       return [...newState]
     case "UPDATE_USER_BOARD_TASK":
       // get list of current boards and find the one to update
