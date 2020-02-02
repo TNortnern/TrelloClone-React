@@ -3,16 +3,19 @@ import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import BoardBase from "./BoardBase";
 import "../../styles/Models/Board.scss";
+import "../../styles/GlobalStyles.scss";
 import AddACard from "./Add/AddACard";
 import { setUserBoard, updateUserTask, addLaneToBoard, setUserBoardTask } from "../../actions/boards/index";
 import LaneTasks from "./LaneTasks";
 import Icon from "@material-ui/core/Icon";
 import { Lane } from "../../TestingData/Boards/BoardBlueprint";
 import { ReactSortable } from "react-sortablejs";
+import TaskEditModal from "./TaskEditModal";
 
 
 const Board = ({
   userBoard,
+  taskModalVisible,
   setUserBoard,
   updateUserTask,
   setUserBoardTask,
@@ -61,6 +64,7 @@ const Board = ({
 
     return (
       <BoardBase>
+        {taskModalVisible ? (<TaskEditModal></TaskEditModal>) : ""}
         <div className="board">
           <div className="lane-items">
 
@@ -95,8 +99,7 @@ const Board = ({
 
             <div
               className={
-                "lane-create-btn " +
-                (laneCreateButtonVisible ? "" : "display-none")
+                "lane-create-btn " + (laneCreateButtonVisible ? "" : "display-none")
               }
               onClick={() => toggleLaneNameTabVisibility()}
             >
@@ -144,7 +147,8 @@ const Board = ({
 const mapStateToProps = state => {
   return {
     user: state.user,
-    userBoard: state.userBoard
+    userBoard: state.userBoard,
+    taskModalVisible: state.taskModalVisible
   };
 };
 

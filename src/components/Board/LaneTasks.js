@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import ScreenOverlay from "../Misc/ScreenOverlay";
 import TaskNameForm from "./TaskNameForm";
+import { connect } from "react-redux";
 import { Icon } from "@material-ui/core";
+import { storeTaskForModal, storeLaneForModal, setModalVisibility } from "../../actions/boards/index";
 
-const LaneTasks = ({ task, laneItem }) => {
+
+const LaneTasks = ({ task, laneItem, storeTaskForModal, storeLaneForModal, setModalVisibility }) => {
   const [namesToEdit, setNamesToEdit] = useState([]);
+  const [isEditSelected, setIsEditSelected] = useState(false);
+  const openModal = (task) => {
+      if (isEditSelected || namesToEdit.includes(task.id))
+        return
+      storeTaskForModal(task);
+      storeLaneForModal(laneItem)
+      setModalVisibility(true);
+  }
+
   const taskIcon = action => {
     if (action === "checklist") {
       return (
@@ -18,17 +30,18 @@ const LaneTasks = ({ task, laneItem }) => {
     <>
       {namesToEdit.length ? <ScreenOverlay /> : null}
 
-      <div className="card-item">
+      <div className="card-item" onClick={() => openModal(task)}>
         <div>
           <span>{task.name}</span>
-          <span
-            onClick={() => {
-              setNamesToEdit([...namesToEdit, task.id]);
-            }}
-            className="card-edit-name"
-          >
-            &#9998;
-          </span>
+          <div className="card-edit-name" 
+               onMouseEnter={() => setIsEditSelected(true)}
+               onMouseLeave={() => setIsEditSelected(false)}
+               onClick={() => {
+                setNamesToEdit([...namesToEdit, task.id]);
+              }}>
+            <Icon fontSize="small">edit</Icon>
+          </div>
+
           {namesToEdit.includes(task.id) ? (
             <TaskNameForm
               setNamesToEdit={setNamesToEdit}
@@ -49,4 +62,8 @@ const LaneTasks = ({ task, laneItem }) => {
   );
 };
 
-export default LaneTasks;
+export default connect(null,{ 
+  storeTaskForModal, 
+  storeLaneForModal,
+  setModalVisibility
+})(LaneTasks);

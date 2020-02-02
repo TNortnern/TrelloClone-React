@@ -34,6 +34,14 @@
         background-color: lighten(#5aac44, 7%);
     }
 }
+
+.btn--gray {
+  background-color: rgba(9,30,66,.04);
+  color: black;
+  &:hover {
+    background-color: lighten(rgba(9,30,66,.04), 12%);
+  }
+}
 .btn--disabled {
     background-color: rgb(245, 245, 245);
     color: rgb(139, 138, 138);
