@@ -33,6 +33,13 @@ export const toggleTaskEditModalVisibility = payload => {
   }
 }
 
+export const setModalVisibility = payload => {
+  return {
+    type: 'SET_MODAL_VISIBILITY',
+    payload
+  }
+}
+
 export const setUserBoardTask = (task, newLaneIdForTask) => {
   return {
     type: "SET_USER_BOARD_TASK",
@@ -40,6 +47,20 @@ export const setUserBoardTask = (task, newLaneIdForTask) => {
     newLaneId: newLaneIdForTask
   };
 };
+
+export const storeTaskForModal = (payload) => {
+  return {
+    type: "STORE_TASK_FOR_MODAL",
+    payload
+  }
+}
+
+export const storeLaneForModal = (payload) => {
+  return {
+    type: "STORE_LANE_FOR_MODAL",
+    payload
+  }
+}
 
 export const updateUserTask = payload => (dispatch, getState) => {
   // check what the user is updating
