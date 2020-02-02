@@ -4,10 +4,10 @@ import "../../styles/Models/TaskEditModal.scss";
 import "../../styles/GlobalStyles.scss";
 import OutsideClickHandler from "react-outside-click-handler";
 import { connect } from "react-redux";
-import { setUserBoard, updateUserTask, addLaneToBoard, setUserBoardTask, setModalVisibility } from "../../actions/boards/index";
+import { setUserBoard, updateUserTask, addLaneToBoard, updateTask, setUserBoardTask, setModalVisibility } from "../../actions/boards/index";
 
 
-const TaskEditModal = ({ task, laneItem, taskData, laneData, userBoard, setModalVisibility }) => {
+const TaskEditModal = ({ task, laneItem, taskData, laneData, updateTask, setModalVisibility }) => {
 
     const [descriptionOpen, setDescriptionOpen] = useState(false);
     const [titleChangeOpenStatus, setTitleChangeOpenStatus] = useState(false);
@@ -27,7 +27,7 @@ const TaskEditModal = ({ task, laneItem, taskData, laneData, userBoard, setModal
     const changeTaskData = (fieldName, newFieldValue) => {
         let newTaskData = taskData
         newTaskData[fieldName] = newFieldValue;
-        setUserBoardTask(newTaskData, newTaskData.laneId)
+        updateTask(newTaskData, newTaskData.laneId)
     }
 
     const changeDescription = () => {
@@ -57,6 +57,7 @@ const TaskEditModal = ({ task, laneItem, taskData, laneData, userBoard, setModal
         let newChecklistItems = [...checklistItems, checklistItemObject]
         setChecklistItems(newChecklistItems)
         changeTaskData('checklistItems', newChecklistItems)
+        setChecklistItemTitle("")
     }
 
     const toggleChecklistItem = (itemIndex) => {
@@ -139,7 +140,7 @@ const TaskEditModal = ({ task, laneItem, taskData, laneData, userBoard, setModal
                     </div>
 
                     <div className="modal-body__block__checklist">
-                    {checklistItems.length ? checklistItems.map((value, index) => {
+                    {taskData.checklistItems.length ? taskData.checklistItems.map((value, index) => {
                             return <div className="checklist__item" 
                                         onClick={() => toggleChecklistItem(index)}
                                         key={index}>
@@ -244,5 +245,6 @@ export default connect(mapStateToProps, {
     updateUserTask, 
     setUserBoardTask, 
     addLaneToBoard,
-    setModalVisibility 
+    setModalVisibility,
+    updateTask 
 })(TaskEditModal);

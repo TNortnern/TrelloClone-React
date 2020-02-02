@@ -40,6 +40,13 @@ export const setModalVisibility = payload => {
   }
 }
 
+export const updateTask = payload => {
+  return {
+    type: 'UPDATE_TASK',
+    payload
+  }
+}
+
 export const setUserBoardTask = (task, newLaneIdForTask) => {
   return {
     type: "SET_USER_BOARD_TASK",

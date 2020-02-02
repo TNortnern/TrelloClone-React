@@ -123,6 +123,12 @@
                 &:hover {
                     background-color: rgba(9,30,66,.04);
                 }
+                &.selected {
+                    background-color: rgba(9,30,66,.04);
+                    &:hover {
+                        background-color: rgba(9,30,66,.4);
+                    }
+                }
             }
         }
 
