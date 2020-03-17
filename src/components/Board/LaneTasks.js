@@ -21,7 +21,7 @@ const LaneTasks = ({ task, laneItem, storeTaskForModal, storeLaneForModal, setMo
     if (action === "checklist") {
       return (
         <div className="d-flex justify-content-start">
-          <Icon fontSize={'small'}>check_box</Icon><span className="task-text-muted">1/2</span>
+          <Icon fontSize={'small'}>check_box</Icon><span className="task-text-muted">2/2</span>
         </div>
       );
     }
