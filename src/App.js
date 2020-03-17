@@ -45,7 +45,7 @@ class App extends Component {
               classNames="page"
               timeout={300}
             >
-              <Switch location={this.props.location}>
+              <Switch>
                 <AuthProtected
                   authed={this.props.user}
                   exact
