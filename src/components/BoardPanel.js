@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import Panel from "./Panel";
 import "../styles/Models/BoardPanel.scss";
 import BoardSection from "./BoardSection";
+import CreateNewBoard from "./Home/CreateNewBoard";
+
 
 class BoardPanel extends Component {
   constructor(props) {
     super(props);
-    this.state = { showRecent: true, showPersonal: true };
+    this.state = { showRecent: true, showPersonal: true, creatingNew: false };
   }
   toggleRecent = () => {
     this.setState({ showRecent: !this.state.showRecent });
@@ -15,6 +17,9 @@ class BoardPanel extends Component {
   togglePersonal = () => {
     this.setState({ showPersonal: !this.state.showPersonal });
   };
+  closeCreate = () => {
+    this.setState({creatingNew: !this.state.creatingNew})
+  }
   render() {
     return (
       <Panel
@@ -42,6 +47,10 @@ class BoardPanel extends Component {
           icon="developer_board"
           collection={this.props.boards}
         />
+        <span onClick={() => this.setState({creatingNew : true})} className="navbar-containet__board-panel--create-new">
+          Create new board...
+        </span>
+        { this.state.creatingNew ? <CreateNewBoard closeCreate={this.closeCreate} /> : '' }
       </Panel>
     );
   }

@@ -1,0 +1,11 @@
+@import '../colors';
+.settings-base {
+    color: $dark-blue;
+}
+
+.settings-base__user {
+    margin: 60px 0 30px 0;
+    img {
+        width: 50px;
+    }
+}

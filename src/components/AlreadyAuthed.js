@@ -8,12 +8,11 @@ import { Redirect, Route } from "react-router-dom";
 
 const AlreadyAuthed = ({ component: Component, authed, ...rest }) => {
   // Add your own authentication on the below line.
-
   return (
     <Route
       {...rest}
       render={props =>
-        !authed ? (
+      !authed ? (
           <Component {...props} />
         ) : (
           <Redirect
