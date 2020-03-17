@@ -47,7 +47,7 @@ export const boardItems = [
       { id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), laneId: 2, checklist: false, checklistItems: [], description: "", name: "Build Task Modal", actions: [{ type: "checklist", id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) }] },
       { id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), laneId: 2, checklist: false, checklistItems: [], description: "", name: "Build Settings Page", actions: [] },
       { id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), laneId: 2, checklist: false, checklistItems: [], description: "", name: "Route Transitions", actions: [] },
-      { id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), laneId: 2, checklist: false, checklistItems: [], description: "", name: "Launch on Netlify", actions: [] },
+      { id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), laneId: 2, checklist: false, checklistItems: [], description: "", name: "Launch on Now", actions: [] },
     ]
   },
   // {
