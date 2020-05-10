@@ -50,13 +50,13 @@ const LaneTasks = ({ task, laneItem, storeTaskForModal, storeLaneForModal, setMo
             />
           ) : null}
         </div>
-        {task.actions.length
+        {/* {task.actions.length
           ? task.actions.map(action => (
               <div key={action.id} className="card-actions">
                 {taskIcon(action.type)}
               </div>
             ))
-          : null}
+          : null} */}
       </div>
     </>
   );
